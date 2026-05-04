@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-slate-50 text-gray-900 antialiased; }
+}
+
+@layer utilities {
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .glass { @apply bg-white/80 backdrop-blur-md; }
+}
+
+/* ── Voice Dashboard dark override ─────────────────────────────── */
+.voice-dark {
+  background-color: #060d1c;
+  color: #f1f5f9;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ── Custom animations ──────────────────────────────────────────── */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes ring-phone {
+  0%,100% { transform: rotate(0deg); }
+  10%  { transform: rotate(15deg); }
+  20%  { transform: rotate(-13deg); }
+  30%  { transform: rotate(10deg); }
+  40%  { transform: rotate(-8deg); }
+  50%  { transform: rotate(5deg); }
+  60%  { transform: rotate(-3deg); }
+  70%  { transform: rotate(0deg); }
+}
+@keyframes wave-bar {
+  0%   { transform: scaleY(0.2); }
+  100% { transform: scaleY(1); }
+}
+
+.animate-spin-slow { animation: spin-slow 4s linear infinite; }
+.animate-ring      { animation: ring-phone 1.5s ease-in-out infinite; transform-origin: 50% 10%; }
